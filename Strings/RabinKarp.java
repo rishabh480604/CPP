@@ -1,6 +1,6 @@
 class RabinKarpAlgo{
     //take any prime no
-    private final int PRIME=1;
+    private final int PRIME=101;
     private long calculateHash(String str){
         long hash=0;
         for(int i=0;i<str.length();i++){
@@ -65,8 +65,8 @@ class RabinKarpAlgo{
 public class RabinKarp{
     public static void main(String[] args) {
 
-        String text="racecar";
-        String pattern ="car";
+        String text="raceracarecar";
+        String pattern ="care";
         RabinKarpAlgo obj=new RabinKarpAlgo(text, pattern);
         /*
         try{
