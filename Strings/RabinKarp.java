@@ -1,40 +1,43 @@
-class RabinKarp{
+class RabinKarpAlgo{
     //take any prime no
-    private final int PRIME=3;
+    private final int PRIME=1;
     private long calculateHash(String str){
         long hash=0;
         for(int i=0;i<str.length();i++){
-            hash=hash+(long)(str.charAt(i)*Math.pow(i,PRIME));
+            hash=hash+(long)(Math.pow(str.charAt(i),PRIME));
         }
         return hash;
     }
-    private long calculateHash(String str,int len){
+    private long calculateHash(String str,int start,int len){
         long hash=0;
-        for(int i=0;i<len;i++){
-            hash=hash+(long)(str.charAt(i)*Math.pow(i,PRIME));
+        for(int i=start;i<len+start;i++){
+            hash=hash+(long)(Math.pow(str.charAt(i),PRIME));
         }
         return hash;
     }
     private long updateHash(long prevHash,int oldChar,int newChar, String str){
-        long newHash=prevHash-(long)(str.charAt(oldChar)*Math.pow(oldChar,PRIME));
-        newHash+=(long)(str.charAt(newChar)*Math.pow(newChar,PRIME));
+        long newHash=prevHash-(long)(Math.pow(str.charAt(oldChar),PRIME));
+        newHash+=(long)(Math.pow(str.charAt(newChar),PRIME));
         return newHash;
     }
 
-    public int search(String text,String pattern){
+    private int search(String text,String pattern){
         int patternLength=pattern.length();
+        System.out.println("pattern length : "+patternLength);
         long patternHash=calculateHash(pattern);
-        long textHash=calculateHash(text,patternLength);
+        long textHash=calculateHash(text,0,patternLength);
 
         for(int i=0;i<=text.length()- pattern.length();i++){
             if(i!=0){
-                patternHash=updateHash(patternHash,i-1,i,pattern);
+                textHash=updateHash(textHash,i-1,i+patternLength-1,text);
             }
+            System.out.println(i+" textHash: "+textHash+" PatternHash: "+patternHash);
             if(patternHash==textHash){
                 int temp=i;
-                int j;
+                int j=0;
+                // System.out.println(text.charAt(temp)+"  "+pattern.charAt(j));
                 for(j=0;j<patternLength;j++){
-                    if(text.charAt(j)==pattern.charAt(temp)){
+                    if(pattern.charAt(j)==text.charAt(temp)){
                         temp++;
                     }else{
                         
@@ -46,11 +49,29 @@ class RabinKarp{
                 if(j!=Integer.MAX_VALUE){
                     return i;
                 }
+
             }
             //match pettern hash with text
             //if match then check string -can possible match or not
             // if match return
         }
         return -1;
+    }
+    RabinKarpAlgo(String text,String pattern){
+        // System.out.println("ans : "+calculateHash(text, 7,5));
+        System.out.println(search(text,pattern));
+    }
+}
+public class RabinKarp{
+    public static void main(String[] args) {
+
+        String text="racecar";
+        String pattern ="car";
+        RabinKarpAlgo obj=new RabinKarpAlgo(text, pattern);
+        /*
+        try{
+        }catch(Exception e){
+            System.out.println(e);
+        } */
     }
 }
