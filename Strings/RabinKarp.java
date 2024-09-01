@@ -67,7 +67,7 @@ public class RabinKarp{
 
         String text="raceracarecar";
         String pattern ="care";
-        RabinKarpAlgo obj=new RabinKarpAlgo(text, pattern);
+        new RabinKarpAlgo(text, pattern);
         /*
         try{
         }catch(Exception e){
