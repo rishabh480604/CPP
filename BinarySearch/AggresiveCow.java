@@ -1,7 +1,7 @@
 import java.util.Arrays;
 import java.util.Scanner;
 //binary search topic
-public class Main {
+public class AggresiveCow {
     static int accom(int[] stall,int diff){
         int count=0;
         int pos=0;
