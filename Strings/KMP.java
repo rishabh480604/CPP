@@ -1,4 +1,5 @@
 public class KMP {
+    //lps-longest prefix suffix
     int[] lpsfinder(char[] pattern){
         //this will create lps table
         int[] lps=new int[pattern.length];
