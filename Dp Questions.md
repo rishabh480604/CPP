@@ -1,8 +1,8 @@
 1.Linear DP
-https://leetcode.com/problems/climbing-stairs/ 
-https://leetcode.com/problems/best-time-to-buy-and-sell-stock/ 
-https://leetcode.com/problems/min-cost-climbing-stairs/ 
-https://leetcode.com/problems/divisor-game/ 
+https://leetcode.com/problems/climbing-stairs/  
+https://leetcode.com/problems/best-time-to-buy-and-sell-stock/   
+https://leetcode.com/problems/min-cost-climbing-stairs/   
+https://leetcode.com/problems/divisor-game/  
 https://leetcode.com/problems/decode-ways/ 
 https://leetcode.com/problems/unique-binary-search-trees/ 
 https://leetcode.com/problems/house-robber/
